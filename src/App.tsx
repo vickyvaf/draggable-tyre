@@ -9,6 +9,8 @@ import React, { useRef, useState } from "react";
 export function App() {
   const [widgets, setWidgets] = useState(KOMATSU);
 
+  const [isShowJson, setIsShowJson] = useState(false);
+
   const currentRef = useRef<string | null>(null);
   const targetRef = useRef<string | null>(null);
 
@@ -156,9 +158,15 @@ export function App() {
           </section>
         </div>
 
-        <pre className="text-[12px] mt-5 hidden md:block">
-          {JSON.stringify(widgets, null, 2)}
-        </pre>
+        <div className="flex flex-col justify-center">
+          <button onClick={() => setIsShowJson(!isShowJson)}>
+            {isShowJson ? "Hide" : "Show"} JSON
+          </button>
+
+          {isShowJson && (
+            <pre className="mt-5">{JSON.stringify(widgets, undefined, 2)}</pre>
+          )}
+        </div>
       </section>
     </main>
   );
