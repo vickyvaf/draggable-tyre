@@ -124,7 +124,11 @@ export function App() {
                             onDragLeave={onDragLeave}
                             onDragOver={onDragOver}
                             onDragEnter={(e) => onDragEnter(e, _item.id)}
-                            className="cursor-grab"
+                            className={
+                              _item.icon.includes("axle")
+                                ? "cursor-grab py-10"
+                                : "cursor-grab"
+                            }
                           />
                         );
                       })}
@@ -146,7 +150,11 @@ export function App() {
                             onDragLeave={onDragLeave}
                             onDragOver={onDragOver}
                             onDragEnter={(e) => onDragEnter(e, _item.id)}
-                            className="cursor-grab"
+                            className={
+                              _item.icon.includes("axle")
+                                ? "cursor-grab py-10"
+                                : "cursor-grab"
+                            }
                           />
                         );
                       })}
